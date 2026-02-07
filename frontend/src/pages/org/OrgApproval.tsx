@@ -261,7 +261,7 @@ export const OrgApproval = () => {
   }
 
   return (
-    <div className="max-w-4xl">
+    <div className="max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold text-white mb-6">Document Approval Requests</h1>
 
       {/* Approved Banner */}

@@ -76,11 +76,15 @@ export const OrgIssue = () => {
     setSuccess(false);
 
     try {
-      const expiryTimestamp = Math.floor(new Date(expiryDate).getTime() / 1000);
-      if (expiryTimestamp <= Math.floor(Date.now() / 1000)) {
-        setError("Expiry date must be in the future");
-        setLoading(false);
-        return;
+      // Use 0 for no expiry, or validate if provided
+      let expiryTimestamp = 0;
+      if (expiryDate) {
+        expiryTimestamp = Math.floor(new Date(expiryDate).getTime() / 1000);
+        if (expiryTimestamp <= Math.floor(Date.now() / 1000)) {
+          setError("Expiry date must be in the future");
+          setLoading(false);
+          return;
+        }
       }
 
       const buf = await file.arrayBuffer();
@@ -117,7 +121,8 @@ export const OrgIssue = () => {
       formData.append("description", description);
       formData.append("documentType", documentType);
       formData.append("fromOrganisation", organisationUsername);
-      formData.append("expiryDate", String(expiryTimestamp * 1000));
+      // Only send expiryDate if it was set (not 0)
+      formData.append("expiryDate", expiryTimestamp === 0 ? "0" : String(expiryTimestamp * 1000));
       formData.append("file", file);
       formData.append("metadata", JSON.stringify({ recipientName }));
 
@@ -220,8 +225,9 @@ export const OrgIssue = () => {
             <textarea required value={description} onChange={(e) => setDescription(e.target.value)} className={`${inputClass} h-32 resize-none`} placeholder="Describe the qualification or experience..." />
           </div>
           <div>
-            <label className={labelClass}>Expiry date</label>
-            <input type="date" required value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} className={inputClass} min={new Date().toISOString().split("T")[0]} />
+            <label className={labelClass}>Expiry date (optional)</label>
+            <p className="text-xs text-gray-500 mb-2">Leave empty for no expiration. If set, must be in the future.</p>
+            <input type="date" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} className={inputClass} min={new Date().toISOString().split("T")[0]} />
           </div>
           <div>
             <label className={labelClass}>Upload document (PDF / image) *</label>

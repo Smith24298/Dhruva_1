@@ -57,7 +57,7 @@ export const UserShare = () => {
   const selectedCred = credentials.find((c) => c.hash === selectedHash);
 
   return (
-    <div className="max-w-2xl pb-20">
+    <div className="max-w-2xl mx-auto pb-20">
       <div className="mb-6">
         <BackButton to="/dashboard" />
       </div>

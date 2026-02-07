@@ -102,7 +102,7 @@ export const UserUpload = () => {
   const labelClass = "block text-sm font-medium text-gray-400 mb-1.5";
 
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl mx-auto">
       <div className="mb-6">
         <BackButton to="/dashboard" />
       </div>

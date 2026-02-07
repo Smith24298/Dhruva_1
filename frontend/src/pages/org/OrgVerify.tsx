@@ -46,7 +46,7 @@ export const OrgVerify = () => {
   };
 
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold text-white mb-6">Verify credential</h1>
 
       <div className="rounded-2xl border border-white/10 bg-[#0f0a18]/70 p-8">
@@ -112,7 +112,7 @@ export const OrgVerify = () => {
                     <div className="flex justify-between text-sm"><span className="text-gray-400">Issuer</span><span className="font-medium text-white font-mono text-xs break-all">{result.issuer}</span></div>
                     <div className="flex justify-between text-sm"><span className="text-gray-400">Holder</span><span className="font-medium text-white font-mono text-xs break-all">{result.holder}</span></div>
                     <div className="flex justify-between text-sm"><span className="text-gray-400">Issued</span><span className="font-medium text-white">{new Date(Number(result.issuedAt) * 1000).toLocaleDateString()}</span></div>
-                    <div className="flex justify-between text-sm"><span className="text-gray-400">Expiry</span><span className="font-medium text-white">{new Date(Number(result.expiryDate) * 1000).toLocaleDateString()}</span></div>
+                    <div className="flex justify-between text-sm"><span className="text-gray-400">Expiry</span><span className="font-medium text-white">{result.expiryDate > BigInt(0) ? new Date(Number(result.expiryDate) * 1000).toLocaleDateString() : "Never"}</span></div>
                   </div>
                 )}
               </div>

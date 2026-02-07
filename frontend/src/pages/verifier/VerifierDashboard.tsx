@@ -146,7 +146,7 @@ export const VerifierDashboard = () => {
   };
 
   return (
-    <div className="space-y-8 max-w-4xl">
+    <div className="space-y-8 max-w-4xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold text-white">Verifier dashboard</h1>
         <p className="text-sm text-gray-400 mt-1">Verify credentials via QR scan, paste, or CSV batch upload</p>
@@ -231,9 +231,9 @@ export const VerifierDashboard = () => {
               <div key={i} className="p-4 flex flex-wrap items-center justify-between gap-4">
                 <div className="min-w-0 flex-1">
                   <p className="font-mono text-xs text-gray-500 break-all">{r.hash}</p>
-                  {r.credential && typeof r.credential === "object" && "credentialName" in r.credential && (
+                  {r.credential && typeof r.credential === "object" && "credentialName" in r.credential ? (
                     <p className="text-sm font-medium text-white mt-1">{String((r.credential as { credentialName?: string }).credentialName)}</p>
-                  )}
+                  ) : null}
                 </div>
                 {getStatusBadge(r)}
               </div>

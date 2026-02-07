@@ -120,7 +120,7 @@ export const OrgIssuerAuth = () => {
   const cannotManage = canManage === false;
 
   return (
-    <div className="space-y-8 max-w-2xl">
+    <div className="space-y-8 max-w-2xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold text-white">Issuer authorization</h1>
         <p className="text-sm text-gray-400 mt-1">Manage authorized credential issuers</p>

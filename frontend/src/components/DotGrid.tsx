@@ -2,15 +2,15 @@ import { useRef, useEffect, useCallback, useMemo } from "react";
 import { gsap } from "gsap";
 import "./DotGrid.css";
 
-const throttle = (func: (...args: unknown[]) => void, limit: number) => {
+const throttle = <T extends (...args: any[]) => void>(func: T, limit: number): T => {
   let lastCall = 0;
-  return function (this: unknown, ...args: unknown[]) {
+  return function (this: unknown, ...args: any[]) {
     const now = performance.now();
     if (now - lastCall >= limit) {
       lastCall = now;
       func.apply(this, args);
     }
-  };
+  } as T;
 };
 
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
@@ -279,7 +279,7 @@ export const DotGrid = ({
       }
     };
 
-    const throttledMove = throttle(onMove, 50) as (e: MouseEvent) => void;
+    const throttledMove = throttle(onMove, 50) as (...args: unknown[]) => void;
     window.addEventListener("mousemove", throttledMove, { passive: true });
     window.addEventListener("click", onClick);
 

@@ -83,7 +83,7 @@ export const OrgIssued = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold text-white">Issued credentials</h1>
 
       <div className="rounded-2xl border border-white/10 bg-[#0f0a18]/70 overflow-hidden">
@@ -123,7 +123,7 @@ export const OrgIssued = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       {cred.revoked ? (
                         <span className="px-2 py-0.5 text-xs font-semibold rounded-lg bg-red-500/20 text-red-400 border border-red-500/30">Revoked</span>
-                      ) : Number(cred.expiryDate) * 1000 < Date.now() ? (
+                      ) : cred.expiryDate > BigInt(0) && Number(cred.expiryDate) * 1000 < Date.now() ? (
                         <span className="px-2 py-0.5 text-xs font-semibold rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30">Expired</span>
                       ) : (
                         <span className="px-2 py-0.5 text-xs font-semibold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Active</span>

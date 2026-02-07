@@ -195,13 +195,13 @@ export const LandingPage = () => {
                   key={index}
                   variants={fadeUp}
                   whileHover={{ backgroundColor: "rgba(82, 39, 255, 0.15)" }}
-                  className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 group transition-colors duration-300 cursor-default"
+                  className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/10 last:border-r-0 group transition-colors duration-50 cursor-default"
                 >
-                  <step.icon className="w-12 h-12 text-[#5227FF] mb-6 group-hover:text-[#3DC2EC] transition-colors duration-300" />
+                  <step.icon className="w-12 h-12 text-[#5227FF] mb-6 group-hover:text-[#3DC2EC] transition-colors duration-50" />
                   <h3 className="text-lg font-black text-white mb-3 uppercase tracking-wide">
                     {step.title}
                   </h3>
-                  <p className="text-gray-400 group-hover:text-gray-300 text-sm leading-relaxed transition-colors duration-300">
+                  <p className="text-gray-400 group-hover:text-gray-300 text-sm leading-relaxed transition-colors duration-50">
                     {step.desc}
                   </p>
                 </motion.div>

@@ -98,29 +98,32 @@ export const DashboardLayout: FC = () => {
             Navigation
           </div>
           <nav className="space-y-0.5">
-            {items.map((item: SidebarItem) => (
-              <button
-                key={item.path}
-                onClick={() => {
-                  navigate(item.path);
-                  setIsSidebarOpen(false);
-                }}
-                className={clsx(
-                  "w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all",
-                  location.pathname === item.path
-                    ? "bg-[#5227FF]/20 text-white border border-[#5227FF]/40"
-                    : "text-gray-400 hover:bg-white/5 hover:text-white border border-transparent",
-                )}
-              >
-                <item.icon
+            {items.map((item: SidebarItem) => {
+              const Icon = item.icon as React.ComponentType<{ className?: string }>;
+              return (
+                <button
+                  key={item.path}
+                  onClick={() => {
+                    navigate(item.path);
+                    setIsSidebarOpen(false);
+                  }}
                   className={clsx(
-                    "w-5 h-5 mr-3",
-                    location.pathname === item.path ? "text-[#3DC2EC]" : "text-gray-500 group-hover:text-[#3DC2EC]",
+                    "w-full flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all",
+                    location.pathname === item.path
+                      ? "bg-[#5227FF]/20 text-white border border-[#5227FF]/40"
+                      : "text-gray-400 hover:bg-white/5 hover:text-white border border-transparent",
                   )}
-                />
-                {item.name}
-              </button>
-            ))}
+                >
+                  <Icon
+                    className={clsx(
+                      "w-5 h-5 mr-3",
+                      location.pathname === item.path ? "text-[#3DC2EC]" : "text-gray-500 group-hover:text-[#3DC2EC]",
+                    )}
+                  />
+                  {item.name}
+                </button>
+              );
+            })}
           </nav>
         </div>
 

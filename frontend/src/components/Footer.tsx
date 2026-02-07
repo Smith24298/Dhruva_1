@@ -18,7 +18,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://github.com/jenin8806/DHRUVA"
+                href="https://github.com/Smith24298/Dhruva_1.git"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-[#5227FF]/20 hover:border-[#5227FF]/40 transition-all"

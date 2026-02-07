@@ -30,7 +30,7 @@ export const UserDID = () => {
   };
 
   return (
-    <div className="space-y-8 max-w-2xl">
+    <div className="space-y-8 max-w-2xl mx-auto">
       <div className="mb-6">
         <BackButton to="/dashboard" />
       </div>

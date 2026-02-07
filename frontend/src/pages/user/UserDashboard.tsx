@@ -84,7 +84,7 @@ export const UserDashboard = () => {
   };
 
   return (
-    <div className="space-y-8 max-w-6xl">
+    <div className="space-y-8 max-w-6xl mx-auto">
       <div className="flex justify-between items-start gap-4 flex-wrap">
         <div>
           <BackButton to="/" />

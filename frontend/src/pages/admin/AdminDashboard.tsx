@@ -176,7 +176,7 @@ export const AdminDashboard = () => {
   const [requests, setRequests] = useState<OrgApprovalRequest[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<"all" | "pending" | "approved" | "rejected">("pending");
-  const [processingId, setProcessingId] = useState<string | null>(null);
+  const [_processingId, setProcessingId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchRequests();
@@ -388,8 +388,8 @@ export const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0614] via-[#1a0b2e] to-[#0a0614] text-white p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a0614] via-[#1a0b2e] to-[#0a0614] text-white p-8 flex justify-center">
+      <div className="w-full max-w-7xl">
         <div className="flex items-center gap-4 mb-8">
           <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#5227FF] to-[#3DC2EC] flex items-center justify-center p-2">
             <img src="/DHRUVALOGO.jpeg" alt="Dhruva Logo" className="w-7 h-7 object-cover rounded-lg" />

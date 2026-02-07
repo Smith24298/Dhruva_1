@@ -33,9 +33,9 @@ router.post("/", upload.single("file"), async (req, res) => {
       }
     }
 
-    if (!hash || !issuer || !holder || !credentialName || !expiryDate) {
+    if (!hash || !issuer || !holder || !credentialName) {
       return res.status(400).json({
-        message: "Missing required fields: hash, issuer, holder, credentialName, expiryDate",
+        message: "Missing required fields: hash, issuer, holder, credentialName",
       });
     }
 
@@ -60,7 +60,7 @@ router.post("/", upload.single("file"), async (req, res) => {
       documentType: documentType || "",
       fromOrganisation: fromOrganisation || "",
       fileUrl: fileUrl,
-      expiryDate,
+      expiryDate: expiryDate ? Number(expiryDate) : 0,
       metadata: parsedMetadata,
     });
 

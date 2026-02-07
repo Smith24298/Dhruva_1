@@ -28,7 +28,7 @@ const credentialSchema = new mongoose.Schema({
     custom: mongoose.Schema.Types.Mixed,
   },
   fileUrl: { type: String },
-  expiryDate: { type: Number, required: true },
+  expiryDate: { type: Number, default: 0 },
   issuedAt: { type: Date, default: Date.now },
   metadata: { type: mongoose.Schema.Types.Mixed, default: {} },
 }, { timestamps: true });
