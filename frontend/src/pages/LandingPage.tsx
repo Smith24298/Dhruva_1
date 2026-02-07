@@ -7,6 +7,7 @@ import {
   ScanLine,
   User,
   Key,
+  Shield,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -97,10 +98,10 @@ export const LandingPage = () => {
               transition={{ duration: 0.5 }}
               className="text-3xl md:text-4xl font-black text-white mb-14 text-center"
             >
-              Three Roles
+              Platform Roles
             </motion.h2>
             <motion.div
-              className="grid md:grid-cols-3 gap-6"
+              className="grid md:grid-cols-2 gap-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
@@ -124,6 +125,12 @@ export const LandingPage = () => {
                   title: "Verifier",
                   desc: "Employer, bank. Scans QR, verifies hash on-chain. Instant result.",
                   accent: "#8B5CF6",
+                },
+                {
+                  icon: Shield,
+                  title: "Admin",
+                  desc: "Governance. Authorizes issuers, manages smart contracts, ensuring system integrity.",
+                  accent: "#F43F5E",
                 },
               ].map((role, index) => (
                 <motion.div
