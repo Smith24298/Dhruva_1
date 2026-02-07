@@ -61,6 +61,37 @@ export const Web3Provider: React.FC<{ children: ReactNode }> = ({ children }) =>
             setProvider(browserProvider);
             
             const accounts = await browserProvider.send("eth_requestAccounts", []);
+            
+            // Switch to Sepolia network
+            try {
+                await browserProvider.send("wallet_switchEthereumChain", [{ chainId: "0xaa36a7" }]);
+            } catch (switchError: any) {
+                // This error code indicates that the chain has not been added to MetaMask.
+                if (switchError.code === 4902) {
+                    try {
+                        await browserProvider.send("wallet_addEthereumChain", [
+                            {
+                                chainId: "0xaa36a7",
+                                chainName: "Sepolia",
+                                nativeCurrency: {
+                                    name: "Sepolia Ether",
+                                    symbol: "ETH",
+                                    decimals: 18
+                                },
+                                rpcUrls: ["https://ethereum-sepolia.publicnode.com", "https://rpc.sepolia.org"],
+                                blockExplorerUrls: ["https://sepolia.etherscan.io"]
+                            },
+                        ]);
+                    } catch (addError) {
+                        console.error("Failed to add Sepolia network:", addError);
+                        throw new Error("Failed to add Sepolia network to MetaMask.");
+                    }
+                } else {
+                    console.error("Failed to switch to Sepolia network:", switchError);
+                    throw new Error("Failed to switch to Sepolia network.");
+                }
+            }
+
             if (accounts.length > 0) {
                 const walletAddress = accounts[0];
                 
