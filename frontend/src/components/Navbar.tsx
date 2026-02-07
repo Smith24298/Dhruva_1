@@ -78,7 +78,7 @@ export const Navbar = () => {
               onClick={(e) => handleNavClick(e, "three-roles")}
               className={navLinkStyle}
             >
-              Three Roles
+              Four Roles
             </a>
             <a
               href="#how-it-works"
