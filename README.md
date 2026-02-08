@@ -14,8 +14,8 @@ Submission by team Synergy067
 * 📦 **GitHub Repository**
   [https://github.com/Smith24298/Dhruva_1](https://github.com/Smith24298/Dhruva_1)
 
-* 🎥 **YouTube Demo Video**
-  [https://youtu.be/XXXXXXXXXXX](https://youtu.be/XXXXXXXXXXX)
+* 🎥 ** Demo Video**
+  [https://drive.google.com/drive/u/3/folders/1qN1wug7DRHcejm59HDSUbh-GaxzBmIXk](https://drive.google.com/drive/u/3/folders/1qN1wug7DRHcejm59HDSUbh-GaxzBmIXk)
 
 ---
 
